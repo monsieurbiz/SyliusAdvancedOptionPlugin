@@ -1,0 +1,6 @@
+suites:
+    main:
+        namespace: MonsieurBiz\SyliusAdvancedOptionPlugin
+        psr4_prefix: MonsieurBiz\SyliusAdvancedOptionPlugin
+        src_path: src
+        spec_path: tests

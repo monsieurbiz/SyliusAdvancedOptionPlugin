@@ -1,0 +1,12 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    MonsieurBiz\SyliusAdvancedOptionPlugin\:
+        resource: '../../*'
+
+    MonsieurBiz\SyliusAdvancedOptionPlugin\Controller\:
+        resource: '../../Controller'
+        tags: ['controller.service_arguments']
