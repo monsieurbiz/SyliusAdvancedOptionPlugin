@@ -21,3 +21,12 @@ sylius_theme:
             scan_depth: 1
             directories:
                 - "%kernel.project_dir%/themes"
+
+sylius_product:
+    resources:
+        product_option:
+            classes:
+                model: App\Entity\Product\ProductOption
+        product_option_value:
+            classes:
+                model: App\Entity\Product\ProductOptionValue

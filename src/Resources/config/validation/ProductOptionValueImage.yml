@@ -1,0 +1,16 @@
+MonsieurBiz\SyliusAdvancedOptionPlugin\Entity\ProductOption\ProductOptionValueImage:
+    properties:
+        file:
+            - Image:
+                  groups: [sylius]
+                  maxHeight: 5000
+                  # 10M
+                  maxSize: 1048576
+                  maxWidth: 5000
+                  mimeTypes:
+                      - "image/png"
+                      - "image/jpg"
+                      - "image/jpeg"
+                  mimeTypesMessage: 'monsieurbiz_advancedoption.incorrect_image'
+                  minHeight: 100
+                  minWidth: 100

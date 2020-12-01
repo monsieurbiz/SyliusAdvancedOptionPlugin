@@ -1,2 +1,5 @@
 monsieurbiz_advanced_option:
-  ui:
+    ui:
+        rendering: 'Rendering'
+        renderer: 'Renderer'
+        images: 'Images'

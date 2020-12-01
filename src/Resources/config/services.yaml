@@ -6,7 +6,22 @@ services:
 
     MonsieurBiz\SyliusAdvancedOptionPlugin\:
         resource: '../../*'
+        exclude: '../../{Entity,Migrations}'
 
     MonsieurBiz\SyliusAdvancedOptionPlugin\Controller\:
         resource: '../../Controller'
         tags: ['controller.service_arguments']
+
+
+    MonsieurBiz\SyliusAdvancedOptionPlugin\Form\Type\ProductOption\ProductOptionValueImageType:
+        arguments:
+            - '%monsieurbiz_advancedoption.model.product_option_value_image.class%'
+        tags: ['form.type']
+
+    MonsieurBiz\SyliusAdvancedOptionPlugin\EventListener\ImagesUploadListener:
+        autowire: true
+        autoconfigure: false
+        public: false
+        tags:
+            - { name: kernel.event_listener, event: sylius.product_option.pre_create, method: uploadImages }
+            - { name: kernel.event_listener, event: sylius.product_option.pre_update, method: uploadImages }
