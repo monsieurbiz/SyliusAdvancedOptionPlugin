@@ -25,3 +25,7 @@ services:
         tags:
             - { name: kernel.event_listener, event: sylius.product_option.pre_create, method: uploadImages }
             - { name: kernel.event_listener, event: sylius.product_option.pre_update, method: uploadImages }
+
+    MonsieurBiz\SyliusAdvancedOptionPlugin\Source\RendererSource:
+        arguments:
+            - '%monsieurbiz.advanced_option.config.renderers%'

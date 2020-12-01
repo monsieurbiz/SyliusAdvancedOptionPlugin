@@ -3,3 +3,5 @@ monsieurbiz_advanced_option:
         rendering: 'Rendering'
         renderer: 'Renderer'
         images: 'Images'
+        renderers:
+            small_images: 'Small images'

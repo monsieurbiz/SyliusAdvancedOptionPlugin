@@ -13,6 +13,7 @@ declare(strict_types=1);
 
 namespace MonsieurBiz\SyliusAdvancedOptionPlugin\DependencyInjection;
 
+use Symfony\Component\Config\Definition\Builder\ArrayNodeDefinition;
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 use Symfony\Component\Config\Definition\ConfigurationInterface;
 
@@ -24,15 +25,29 @@ final class Configuration implements ConfigurationInterface
     public function getConfigTreeBuilder(): TreeBuilder
     {
         $treeBuilder = new TreeBuilder('monsieurbiz_sylius_advanced_option');
-        if (method_exists($treeBuilder, 'getRootNode')) {
-            $treeBuilder->getRootNode();
-
-            return $treeBuilder;
-        }
-
-        // BC layer for symfony/config 4.1 and older
-        $treeBuilder->root('monsieurbiz_sylius_advanced_option');
+        $this->addRenderers($treeBuilder->getRootNode());
 
         return $treeBuilder;
+    }
+
+    /**
+     * @param ArrayNodeDefinition $rootNode
+     */
+    private function addRenderers(ArrayNodeDefinition $rootNode): void
+    {
+        $rootNode
+            ->children()
+                ->arrayNode('renderers')
+                    ->useAttributeAsKey('code', false)
+                    ->defaultValue([])
+                    ->arrayPrototype()
+                        ->children()
+                            ->scalarNode('label')->isRequired()->cannotBeEmpty()->end()
+                            ->scalarNode('template')->isRequired()->cannotBeEmpty()->end()
+                        ->end()
+                    ->end()
+                ->end()
+            ->end()
+        ;
     }
 }

@@ -13,13 +13,29 @@ declare(strict_types=1);
 
 namespace MonsieurBiz\SyliusAdvancedOptionPlugin\Form\Extension;
 
+use MonsieurBiz\SyliusAdvancedOptionPlugin\Source\RendererSource;
 use Sylius\Bundle\ProductBundle\Form\Type\ProductOptionType;
 use Symfony\Component\Form\AbstractTypeExtension;
-use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\FormBuilderInterface;
 
 final class ProductOptionTypeExtension extends AbstractTypeExtension
 {
+    /**
+     * @var RendererSource
+     */
+    private RendererSource $rendererSource;
+
+    /**
+     * ProductOptionTypeExtension constructor.
+     *
+     * @param RendererSource $rendererSource
+     */
+    public function __construct(RendererSource $rendererSource)
+    {
+        $this->rendererSource = $rendererSource;
+    }
+
     /**
      * @param FormBuilderInterface $builder
      * @param array $options
@@ -28,9 +44,10 @@ final class ProductOptionTypeExtension extends AbstractTypeExtension
      */
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
-        $builder->add('renderer', TextType::class, [
+        $builder->add('renderer', ChoiceType::class, [
             'label' => 'monsieurbiz_advanced_option.ui.renderer',
             'required' => false,
+            'choices' => $this->rendererSource->getChoices(),
         ]);
     }
 

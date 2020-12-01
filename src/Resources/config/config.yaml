@@ -1,3 +1,9 @@
 imports:
     - { resource: 'app/doctrine_migrations.yaml' }
     - { resource: 'sylius/resource.yaml' }
+
+monsieurbiz_sylius_advanced_option:
+    renderers:
+        small_images:
+            label: monsieurbiz_advanced_option.ui.renderers.small_images
+            template: '@@MonsieurBizSyliusAdvancedOptionPlugin/Renderer/small_images.html.twig'

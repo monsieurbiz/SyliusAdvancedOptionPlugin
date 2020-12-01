@@ -3,3 +3,5 @@ monsieurbiz_advanced_option:
         rendering: 'Rendu'
         renderer: 'Type de rendu'
         images: 'Images'
+        renderers:
+            small_images: 'Petites images'
