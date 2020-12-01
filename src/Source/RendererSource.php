@@ -13,7 +13,7 @@ declare(strict_types=1);
 
 namespace MonsieurBiz\SyliusAdvancedOptionPlugin\Source;
 
-final class RendererSource implements SourceInterface
+final class RendererSource implements RendererSourceInterface
 {
     /**
      * @var array
@@ -41,5 +41,19 @@ final class RendererSource implements SourceInterface
         }
 
         return $choices;
+    }
+
+    /**
+     * @param string $rendererCode
+     *
+     * @return string|null
+     */
+    public function getRendererTemplate(string $rendererCode): ?string
+    {
+        if (!\array_key_exists($rendererCode, $this->renderers)) {
+            return null;
+        }
+
+        return $this->renderers[$rendererCode]['template'];
     }
 }

@@ -1,0 +1,36 @@
+{% extends '@SyliusUi/Form/theme.html.twig' %}
+
+{% block choice_row -%}
+    <div class="{% if required %}required {% endif %}field{% if (not compound or force_error|default(false)) and not valid %} error{% endif %}">
+        {{- form_label(form) -}}
+        <div style="display: none;">
+            {% set attr = attr|merge({'class': attr.class|default ~ ' ui dropdown'}) %}
+            {{- form_widget(form, {'attr': attr}) -}}
+        </div>
+
+        <div class="field">
+            {% for value in option.values %}
+                {% if value.images.first %}
+                    {% set source_path = value.images.first.path %}
+                    {% set path = source_path|imagine_filter(filter|default('monsieurbiz_sylius_advanced_option_tiny_thumbnail')) %}
+                {% else %}
+                    {% set path = '//placehold.it/400x300' %}
+                {% endif %}
+
+                <label style="display: inline-block;">
+                    <input
+                        type="radio"
+                        name="value__{{ form.vars.full_name }}"
+                        value="{{ value.code }}"
+                        data-option="{{ form.vars.name }}"
+                        data-target="{{ form.vars.id }}"
+                        onchange="javascript:document.getElementById(this.dataset.target).value = this.value;"
+                    />
+                    <img src="{{ path }}" alt="{{ value.value }}" />
+                </label>
+            {% endfor %}
+        </div>
+        {{- form_help(form) -}}
+        {{- form_errors(form) -}}
+    </div>
+{%- endblock choice_row %}

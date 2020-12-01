@@ -13,7 +13,7 @@ declare(strict_types=1);
 
 namespace MonsieurBiz\SyliusAdvancedOptionPlugin\Form\Extension;
 
-use MonsieurBiz\SyliusAdvancedOptionPlugin\Source\RendererSource;
+use MonsieurBiz\SyliusAdvancedOptionPlugin\Source\RendererSourceInterface;
 use Sylius\Bundle\ProductBundle\Form\Type\ProductOptionType;
 use Symfony\Component\Form\AbstractTypeExtension;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
@@ -22,16 +22,16 @@ use Symfony\Component\Form\FormBuilderInterface;
 final class ProductOptionTypeExtension extends AbstractTypeExtension
 {
     /**
-     * @var RendererSource
+     * @var RendererSourceInterface
      */
-    private RendererSource $rendererSource;
+    private RendererSourceInterface $rendererSource;
 
     /**
      * ProductOptionTypeExtension constructor.
      *
-     * @param RendererSource $rendererSource
+     * @param RendererSourceInterface $rendererSource
      */
-    public function __construct(RendererSource $rendererSource)
+    public function __construct(RendererSourceInterface $rendererSource)
     {
         $this->rendererSource = $rendererSource;
     }
