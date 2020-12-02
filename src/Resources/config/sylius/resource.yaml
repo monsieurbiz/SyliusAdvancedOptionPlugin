@@ -1,0 +1,6 @@
+sylius_resource:
+    resources:
+        monsieurbiz_advancedoption.product_option_value_image:
+            classes:
+                model: MonsieurBiz\SyliusAdvancedOptionPlugin\Entity\ProductOption\ProductOptionValueImage
+                form: MonsieurBiz\SyliusAdvancedOptionPlugin\Form\Type\ProductOption\ProductOptionValueImageType

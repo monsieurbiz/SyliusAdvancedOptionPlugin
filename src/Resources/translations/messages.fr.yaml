@@ -1,2 +1,7 @@
 monsieurbiz_advanced_option:
-  ui:
+    ui:
+        rendering: 'Rendu'
+        renderer: 'Type de rendu'
+        images: 'Images'
+        renderers:
+            small_images: 'Petites images'

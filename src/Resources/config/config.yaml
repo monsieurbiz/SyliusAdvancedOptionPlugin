@@ -1,0 +1,16 @@
+imports:
+    - { resource: 'app/doctrine_migrations.yaml' }
+    - { resource: 'sylius/resource.yaml' }
+
+liip_imagine:
+    filter_sets:
+        monsieurbiz_sylius_advanced_option_tiny_thumbnail:
+            filters:
+                thumbnail: { size: [32, 32], mode: outbound }
+
+
+monsieurbiz_sylius_advanced_option:
+    renderers:
+        small_images:
+            label: 'monsieurbiz_advanced_option.ui.renderers.small_images'
+            template: '@MonsieurBizSyliusAdvancedOptionPlugin/Renderer/small_images.html.twig'

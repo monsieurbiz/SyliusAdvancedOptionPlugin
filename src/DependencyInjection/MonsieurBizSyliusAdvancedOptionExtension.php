@@ -25,7 +25,9 @@ final class MonsieurBizSyliusAdvancedOptionExtension extends Extension
      */
     public function load(array $config, ContainerBuilder $container): void
     {
-        $this->processConfiguration($this->getConfiguration([], $container), $config);
+        $config = $this->processConfiguration($this->getConfiguration([], $container), $config);
+        $container->setParameter('monsieurbiz.advanced_option.config.renderers', $config['renderers']);
+
         $loader = new YamlFileLoader($container, new FileLocator(__DIR__ . '/../Resources/config'));
         $loader->load('services.yaml');
     }
