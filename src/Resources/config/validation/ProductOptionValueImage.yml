@@ -11,6 +11,7 @@ MonsieurBiz\SyliusAdvancedOptionPlugin\Entity\ProductOption\ProductOptionValueIm
                       - "image/png"
                       - "image/jpg"
                       - "image/jpeg"
+                      - "image/gif"
                   mimeTypesMessage: 'monsieurbiz_advancedoption.incorrect_image'
                   minHeight: 100
                   minWidth: 100
