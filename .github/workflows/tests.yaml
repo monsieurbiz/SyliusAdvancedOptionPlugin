@@ -63,6 +63,8 @@ jobs:
 
       - run: make test.phpstan
 
+      - run: make test.phpmd
+
       - run: make test.phpspec
 
       - run: make test.yaml
