@@ -16,7 +16,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        php: [7.4]
+        php: ['7.4']
 
     env:
       SYMFONY_ARGS: --no-tls
@@ -37,18 +37,17 @@ jobs:
           curl https://get.symfony.com/cli/installer | bash
           echo "${HOME}/.symfony/bin" >> $GITHUB_PATH
 
+      - run: mkdir -p /home/runner/{.composer/cache,.config/composer}
+
       - uses: actions/cache@v1
         id: cache-composer
         with:
           path: /home/runner/.composer/cache
-          key: composer-php:${{ matrix.php }}-${{ github.sha }}
-          restore-keys: composer-php:${{ matrix.php }}-
+          key: composer2-php:${{ matrix.php }}-${{ github.sha }}
+          restore-keys: composer2-php:${{ matrix.php }}-
 
-      - run: mkdir -p /home/runner/.composer/cache
-        if: steps.cache-composer.outputs.cache-hit != 'true'
-
-      - name: Composer v1
-        run: sudo composer self-update --1
+      - name: Composer v2
+        run: sudo composer self-update --2
 
       - name: Composer Github Auth
         run: composer config -g github-oauth.github.com ${{ github.token }}
@@ -73,4 +72,4 @@ jobs:
 
       - run: make test.schema
 
-      #- run: make test.container
+      - run: make test.container

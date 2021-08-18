@@ -38,6 +38,12 @@
 ###< lexik/jwt-authentication-bundle ###
 
 ###> phpunit/phpunit ###
+/.phpunit.result.cache
 /phpunit.xml
 .phpunit.result.cache
 ###< phpunit/phpunit ###
+
+###> lexik/jwt-authentication-bundle ###
+/config/jwt/*.pem
+!/config/jwt/*-test.pem
+###< lexik/jwt-authentication-bundle ###

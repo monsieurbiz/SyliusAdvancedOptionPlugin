@@ -95,7 +95,7 @@ test.schema: ## Validate MySQL Schema
 	${CONSOLE} doctrine:schema:validate
 
 test.twig: ## Validate Twig templates
-	${CONSOLE} lint:twig -e prod --no-debug ../../tests/Application/templates/
+	${CONSOLE} lint:twig --no-debug ../../src/Resources/views/
 
 ###
 ### SYLIUS
@@ -107,7 +107,7 @@ sylius: dependencies sylius.database sylius.fixtures sylius.assets ## Install Sy
 sylius.database: ## Setup the database
 	${CONSOLE} doctrine:database:drop --if-exists --force
 	${CONSOLE} doctrine:database:create --if-not-exists
-	${CONSOLE} doctrine:schema:update --force
+	${CONSOLE} doctrine:migration:migrate -n
 
 sylius.fixtures: ## Run the fixtures
 	${CONSOLE} sylius:fixtures:load -n default
