@@ -9,9 +9,10 @@
         </div>
 
         <div class="field">
-            {% for value in option.values %}
-                {% if value.images.first %}
-                    {% set source_path = value.images.first.path %}
+            {% for choice in form.vars.choices %}
+                {% set option = choice.data %}
+                {% if option.images.first %}
+                    {% set source_path = option.images.first.path %}
                     {% set path = source_path|imagine_filter(filter|default('monsieurbiz_sylius_advanced_option_tiny_thumbnail')) %}
                 {% else %}
                     {% set path = '//placehold.it/400x300' %}
@@ -21,12 +22,13 @@
                     <input
                         type="radio"
                         name="value__{{ form.vars.full_name }}"
-                        value="{{ value.code }}"
+                        value="{{ choice.value }}"
                         data-option="{{ form.vars.name }}"
                         data-target="{{ form.vars.id }}"
                         onchange="javascript:document.getElementById(this.dataset.target).value = this.value;"
+                        {% if choice.value == form.vars.value %}checked="checked"{% endif %}
                     />
-                    <img src="{{ path }}" alt="{{ value.value }}" />
+                    <img src="{{ path }}" alt="{{ choice.label }}" />
                 </label>
             {% endfor %}
         </div>
