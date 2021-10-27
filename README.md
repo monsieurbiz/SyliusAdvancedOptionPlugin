@@ -32,6 +32,15 @@ You should just run them:
 bin/console doctrine:migrations:migrate
 ```
 
+### Template override
+
+If you have already replaced the `templates/bundles/SyliusShopBundle/Product/Show/_options.html.twig` template in your theme, modify the content to use the twig functions:
+
+- monsieurbiz_advancedoption_has_renderer
+- monsieurbiz_advancedoption_form_row
+
+Read the default override to get inspiration from its content: [_options.html.twig](/src/Resources/templates/bundles/SyliusShopBundle/Product/Show/_options.html.twig).
+
 ## Sponsors
 
 - EasyMonneret

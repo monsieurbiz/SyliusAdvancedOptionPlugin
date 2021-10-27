@@ -1,0 +1,7 @@
+{% for option_form in form.cartItem.variant %}
+    {% if monsieurbiz_advancedoption_has_renderer(option_form.vars.data.option) %}
+        {{ monsieurbiz_advancedoption_form_row(option_form) }}
+    {% else %}
+        {{ form_row(option_form, { 'attr': { 'data-option': option_form.vars.name, 'data-action':'product#selectVariant' } }) }}
+    {% endif %}
+{% endfor %}
