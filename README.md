@@ -20,7 +20,44 @@ This plugins improves the Options in Sylius. It adds the possibility to select a
 
 ## Installation
 
-⚙️ To Be Defined.
+```bash
+composer require monsieurbiz/sylius-advanced-option-plugin
+```
+
+Change your `config/bundles.php` file to add this line for the plugin declaration:
+```php
+<?php
+
+return [
+    //..
+    MonsieurBiz\SyliusAdvancedOptionPlugin\MonsieurBizSyliusAdvancedOptionPlugin::class => ['all' => true],
+];
+```
+
+Then create the config file in `config/packages/monsieurbiz_sylius_advanced_option_plugin.yaml`:
+
+```yaml
+imports:
+    - { resource: "@MonsieurBizSyliusAdvancedOptionPlugin/Resources/config/config.yaml" }
+```
+
+And create the route file in `config/routes/monsieurbiz_sylius_advanced_option_plugin.yaml`:
+
+```yaml
+monsieurbiz_advanced_option_admin:
+    resource: "@MonsieurBizSyliusAdvancedOptionPlugin/Resources/config/routing/admin.yaml"
+    prefix: /%sylius_admin.path_name%
+```
+
+Copy the templates we override:
+
+```bash
+cp -Rv vendor/monsieurbiz/sylius-advanced-option-plugin/src/Resources/templates/* templates/
+```
+
+Your ProductOption entity needs to implement the `RenderedOptionInterface` interface and use the `MonsieurBiz\SyliusAdvancedOptionPlugin\Entity\ProductOption\RenderedOptionTrait` trait. As in our test application: [ProductOption](tests/Application/src/Entity/Product/ProductOption.php).
+
+Your ProductOptionValue entity needs to implement the `RenderedOptionValueInterface` interface and use the `MonsieurBiz\SyliusAdvancedOptionPlugin\Entity\ProductOption\RenderedOptionValueTrait` trait.  As in our test application: [ProductOption](tests/Application/src/Entity/Product/ProductOptionValue.php).
 
 ### Migrations
 
