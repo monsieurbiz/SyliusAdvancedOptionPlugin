@@ -5,7 +5,7 @@
  *
  * (c) Monsieur Biz <sylius@monsieurbiz.com>
  *
- * For the full copyright and license information, please view the LICENSE
+ * For the full copyright and license information, please view the LICENSE.txt
  * file that was distributed with this source code.
  */
 
@@ -19,22 +19,14 @@ trait RenderedOptionTrait
 {
     /**
      * @ORM\Column(name="renderer", type="string", nullable=true)
-     *
-     * @var string|null
      */
     protected ?string $renderer = null;
 
-    /**
-     * @return string|null
-     */
     public function getRenderer(): ?string
     {
         return $this->renderer;
     }
 
-    /**
-     * @param string|null $renderer
-     */
     public function setRenderer(?string $renderer): void
     {
         $this->renderer = $renderer;

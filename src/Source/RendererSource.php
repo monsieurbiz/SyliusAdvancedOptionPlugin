@@ -5,7 +5,7 @@
  *
  * (c) Monsieur Biz <sylius@monsieurbiz.com>
  *
- * For the full copyright and license information, please view the LICENSE
+ * For the full copyright and license information, please view the LICENSE.txt
  * file that was distributed with this source code.
  */
 
@@ -15,15 +15,10 @@ namespace MonsieurBiz\SyliusAdvancedOptionPlugin\Source;
 
 final class RendererSource implements RendererSourceInterface
 {
-    /**
-     * @var array
-     */
     private array $renderers;
 
     /**
      * RendererSource constructor.
-     *
-     * @param array $renderers
      */
     public function __construct(array $renderers)
     {
@@ -31,7 +26,7 @@ final class RendererSource implements RendererSourceInterface
     }
 
     /**
-     * {@inheritdoc}
+     * @inheritdoc
      */
     public function getChoices(): array
     {
@@ -43,11 +38,6 @@ final class RendererSource implements RendererSourceInterface
         return $choices;
     }
 
-    /**
-     * @param string $rendererCode
-     *
-     * @return string|null
-     */
     public function getRendererTemplate(string $rendererCode): ?string
     {
         if (!\array_key_exists($rendererCode, $this->renderers)) {

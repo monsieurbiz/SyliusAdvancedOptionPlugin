@@ -5,7 +5,7 @@
  *
  * (c) Monsieur Biz <sylius@monsieurbiz.com>
  *
- * For the full copyright and license information, please view the LICENSE
+ * For the full copyright and license information, please view the LICENSE.txt
  * file that was distributed with this source code.
  */
 
@@ -50,7 +50,7 @@ trait RenderedOptionValueTrait
 
     public function getImagesByType(string $type): Collection
     {
-        return $this->images->filter(function(ImageInterface $image) use ($type): bool {
+        return $this->images->filter(function (ImageInterface $image) use ($type): bool {
             return $type === $image->getType();
         });
     }
