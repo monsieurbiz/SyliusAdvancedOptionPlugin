@@ -3,8 +3,6 @@ name: Security
 on:
   push:
   pull_request:
-  schedule:
-    - cron:  '0 0 * * *'
 
 jobs:
 
@@ -15,7 +13,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        php: [7.4]
+        php: ['7.4', '8.0']
 
     steps:
       - uses: actions/checkout@v2
@@ -30,22 +28,21 @@ jobs:
         id: cache-composer
         with:
           path: /home/runner/.composer/cache
-          key: composer-php:${{ matrix.php }}-${{ github.sha }}
-          restore-keys: composer-php:${{ matrix.php }}-
+          key: composer2-php:${{ matrix.php }}-${{ github.sha }}
+          restore-keys: composer2-php:${{ matrix.php }}-
 
-      - run: mkdir -p /home/runner/.composer/cache
+      - run: mkdir -p /home/runner/{.composer/cache,.config/composer}
         if: steps.cache-composer.outputs.cache-hit != 'true'
 
-      - name: Composer v1
-        run: sudo composer self-update --1
+      - name: Composer v2
+        run: sudo composer self-update --2
 
       - name: Composer Github Auth
         run: composer config -g github-oauth.github.com ${{ github.token }}
 
       - uses: actions/checkout@v2
-    
+
       - name: Install PHP dependencies
         run: composer update --prefer-dist
 
       - uses: symfonycorp/security-checker-action@v2
-
