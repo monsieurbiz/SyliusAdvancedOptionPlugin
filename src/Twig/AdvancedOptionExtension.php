@@ -5,7 +5,7 @@
  *
  * (c) Monsieur Biz <sylius@monsieurbiz.com>
  *
- * For the full copyright and license information, please view the LICENSE
+ * For the full copyright and license information, please view the LICENSE.txt
  * file that was distributed with this source code.
  */
 
@@ -27,13 +27,11 @@ use Twig\TwigFunction;
 final class AdvancedOptionExtension extends AbstractExtension
 {
     private Environment $twigEnvironment;
+
     private RendererSourceInterface $rendererSource;
 
     /**
      * AdvancedOptionExtension constructor.
-     *
-     * @param Environment $twigEnvironment
-     * @param RendererSourceInterface $rendererSource
      */
     public function __construct(
         Environment $twigEnvironment,
@@ -59,8 +57,6 @@ final class AdvancedOptionExtension extends AbstractExtension
 
     /**
      * @param string $rendererCode
-     *
-     * @return string|null
      */
     private function getTemplate(?string $rendererCode): ?string
     {
@@ -71,11 +67,6 @@ final class AdvancedOptionExtension extends AbstractExtension
         return $this->rendererSource->getRendererTemplate($rendererCode);
     }
 
-    /**
-     * @param ProductOptionInterface $option
-     *
-     * @return string|null
-     */
     private function getOptionRenderer(ProductOptionInterface $option): ?string
     {
         if ($option instanceof RenderedOptionInterface && $option->getRenderer()) {
@@ -86,8 +77,6 @@ final class AdvancedOptionExtension extends AbstractExtension
     }
 
     /**
-     * @param ProductOptionInterface $option
-     *
      * @return bool
      */
     public function hasOptionRenderer(ProductOptionInterface $option)
@@ -96,14 +85,9 @@ final class AdvancedOptionExtension extends AbstractExtension
     }
 
     /**
-     * @param array $context
-     * @param FormView $optionForm
-     *
      * @throws LoaderError
      * @throws RuntimeError
      * @throws SyntaxError
-     *
-     * @return string
      */
     public function renderFormRow(array $context, FormView $optionForm): string
     {
@@ -124,12 +108,8 @@ final class AdvancedOptionExtension extends AbstractExtension
     }
 
     /**
-     * @param FormView $optionForm
-     *
      * @throws LoaderError
      * @throws SyntaxError
-     *
-     * @return string
      */
     private function renderDefaultFormRow(FormView $optionForm): string
     {
