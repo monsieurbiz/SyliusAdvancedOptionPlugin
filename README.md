@@ -1,20 +1,12 @@
-<p align="center">
-    <a href="https://monsieurbiz.com" target="_blank">
-        <img src="https://monsieurbiz.com/logo.png" width="250px" alt="Monsieur Biz logo" />
-    </a>
-    &nbsp;&nbsp;&nbsp;&nbsp;
-    <a href="https://monsieurbiz.com/agence-web-experte-sylius" target="_blank">
-        <img src="https://demo.sylius.com/assets/shop/img/logo.png" width="200px" alt="Sylius logo" />
-    </a>
-    <br/>
-    <img src="https://monsieurbiz.com/assets/images/sylius_badge_extension-artisan.png" width="100" alt="Monsieur Biz is a Sylius Extension Artisan partner">
-</p>
+[![Banner of Sylius Advanced Option plugin](docs/images/banner.jpg)](https://monsieurbiz.com/agence-web-experte-sylius)
 
 <h1 align="center">Advanced Option</h1>
 
 [![Advanced Option Plugin license](https://img.shields.io/github/license/monsieurbiz/SyliusAdvancedOptionPlugin?public)](https://github.com/monsieurbiz/SyliusAdvancedOptionPlugin/blob/master/LICENSE.txt)
-[![Tests Status](https://img.shields.io/github/workflow/status/monsieurbiz/SyliusAdvancedOptionPlugin/Tests?logo=github)](https://github.com/monsieurbiz/SyliusAdvancedOptionPlugin/actions?query=workflow%3ATests)
-[![Security Status](https://img.shields.io/github/workflow/status/monsieurbiz/SyliusAdvancedOptionPlugin/Security?label=security&logo=github)](https://github.com/monsieurbiz/SyliusAdvancedOptionPlugin/actions?query=workflow%3ASecurity)
+[![Tests](https://github.com/monsieurbiz/SyliusAdvancedOptionPlugin/actions/workflows/tests.yaml/badge.svg)](https://github.com/monsieurbiz/SyliusAdvancedOptionPlugin/actions/workflows/tests.yaml)
+[![Security](https://github.com/monsieurbiz/SyliusAdvancedOptionPlugin/actions/workflows/security.yaml/badge.svg)](https://github.com/monsieurbiz/SyliusAdvancedOptionPlugin/actions/workflows/security.yaml)
+[![Flex Recipe](https://github.com/monsieurbiz/SyliusAdvancedOptionPlugin/actions/workflows/recipe.yaml/badge.svg)](https://github.com/monsieurbiz/SyliusAdvancedOptionPlugin/actions/workflows/recipe.yaml)
+
 
 This plugins improves the Options in Sylius. It adds the possibility to select a renderer and to add images to the option's values.
 
