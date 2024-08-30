@@ -28,6 +28,7 @@ trait RenderedOptionValueTrait
      *     cascade={"all"},
      *     orphanRemoval=true
      * )
+     *
      * @Assert\Valid
      *
      * @var Collection|null

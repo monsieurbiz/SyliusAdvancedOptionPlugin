@@ -55,9 +55,6 @@ final class AdvancedOptionExtension extends AbstractExtension
         ];
     }
 
-    /**
-     * @param string $rendererCode
-     */
     private function getTemplate(?string $rendererCode): ?string
     {
         if (null === $rendererCode) {
