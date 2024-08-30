@@ -29,12 +29,16 @@ final class ProductOptionValueTypeExtension extends AbstractTypeExtension
         $builder
             ->add('images', CollectionType::class, [
                 'label' => 'monsieurbiz_advanced_option.ui.images',
+                'prototype_name' => '__image__',
                 'required' => false,
                 'allow_add' => true,
                 'allow_delete' => true,
                 'block_name' => true,
                 'by_reference' => false,
                 'entry_type' => ProductOptionValueImageType::class,
+                'attr' => [
+                    'class' => 'ui segment secondary collection--flex',
+                ],
             ])
         ;
     }
