@@ -25,13 +25,17 @@ final class Configuration implements ConfigurationInterface
     public function getConfigTreeBuilder(): TreeBuilder
     {
         $treeBuilder = new TreeBuilder('monsieurbiz_sylius_advanced_option');
-        $this->addRenderers($treeBuilder->getRootNode());
+        /** @var ArrayNodeDefinition $rootNode */
+        $rootNode = $treeBuilder->getRootNode();
+
+        $this->addRenderers($rootNode);
 
         return $treeBuilder;
     }
 
     private function addRenderers(ArrayNodeDefinition $rootNode): void
     {
+        /** @phpstan-ignore-next-line */
         $rootNode
             ->children()
                 ->arrayNode('renderers')

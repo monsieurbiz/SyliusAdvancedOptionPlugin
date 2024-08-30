@@ -55,9 +55,6 @@ final class AdvancedOptionExtension extends AbstractExtension
         ];
     }
 
-    /**
-     * @param string $rendererCode
-     */
     private function getTemplate(?string $rendererCode): ?string
     {
         if (null === $rendererCode) {
@@ -110,13 +107,15 @@ final class AdvancedOptionExtension extends AbstractExtension
     /**
      * @throws LoaderError
      * @throws SyntaxError
+     *
+     * @SuppressWarnings(PHPMD.CyclomaticComplexity)
      */
     private function renderDefaultFormRow(FormView $optionForm): string
     {
         $formRowFunction = $this->twigEnvironment->getFunction('form_row');
-        if (false !== $formRowFunction) {
+        if (false !== $formRowFunction && null !== $formRowFunction) {
             $formRow = $formRowFunction->getCallable();
-            if (null !== $formRow) {
+            if (null !== $formRow && \is_callable($formRow)) {
                 return $this->twigEnvironment
                     ->createTemplate(
                         $formRow(

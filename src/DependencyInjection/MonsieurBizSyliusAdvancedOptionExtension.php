@@ -35,7 +35,7 @@ final class MonsieurBizSyliusAdvancedOptionExtension extends Extension
     /**
      * @inheritdoc
      */
-    public function getAlias()
+    public function getAlias(): string
     {
         return str_replace('monsieur_biz', 'monsieurbiz', parent::getAlias());
     }
