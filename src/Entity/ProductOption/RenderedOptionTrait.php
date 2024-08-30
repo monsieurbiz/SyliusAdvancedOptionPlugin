@@ -17,6 +17,7 @@ use Doctrine\ORM\Mapping as ORM;
 
 trait RenderedOptionTrait
 {
+    #[ORM\Column(name: 'renderer', type: 'string', nullable: true)]
     /**
      * @ORM\Column(name="renderer", type="string", nullable=true)
      */

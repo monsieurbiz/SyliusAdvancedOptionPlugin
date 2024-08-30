@@ -21,6 +21,12 @@ use Symfony\Component\Validator\Constraints as Assert;
 
 trait RenderedOptionValueTrait
 {
+    #[ORM\OneToMany(
+        targetEntity: 'MonsieurBiz\SyliusAdvancedOptionPlugin\Entity\ProductOption\ProductOptionValueImage',
+        mappedBy: 'owner',
+        cascade: ['all'],
+        orphanRemoval: true
+    )]
     /**
      * @ORM\OneToMany(
      *     targetEntity="MonsieurBiz\SyliusAdvancedOptionPlugin\Entity\ProductOption\ProductOptionValueImage",
