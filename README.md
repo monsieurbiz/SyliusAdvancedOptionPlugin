@@ -3,14 +3,27 @@
 <h1 align="center">Advanced Option</h1>
 
 [![Advanced Option Plugin license](https://img.shields.io/github/license/monsieurbiz/SyliusAdvancedOptionPlugin?public)](https://github.com/monsieurbiz/SyliusAdvancedOptionPlugin/blob/master/LICENSE.txt)
-[![Tests](https://github.com/monsieurbiz/SyliusAdvancedOptionPlugin/actions/workflows/tests.yaml/badge.svg)](https://github.com/monsieurbiz/SyliusAdvancedOptionPlugin/actions/workflows/tests.yaml)
-[![Security](https://github.com/monsieurbiz/SyliusAdvancedOptionPlugin/actions/workflows/security.yaml/badge.svg)](https://github.com/monsieurbiz/SyliusAdvancedOptionPlugin/actions/workflows/security.yaml)
-[![Flex Recipe](https://github.com/monsieurbiz/SyliusAdvancedOptionPlugin/actions/workflows/recipe.yaml/badge.svg)](https://github.com/monsieurbiz/SyliusAdvancedOptionPlugin/actions/workflows/recipe.yaml)
-
+[![Tests Status](https://img.shields.io/github/actions/workflow/status/monsieurbiz/SyliusAdvancedOptionPlugin/tests.yaml?branch=master&logo=github)](https://github.com/monsieurbiz/SyliusAdvancedOptionPlugin/actions?query=workflow%3ATests)
+[![Recipe Status](https://img.shields.io/github/actions/workflow/status/monsieurbiz/SyliusAdvancedOptionPlugin/recipe.yaml?branch=master&label=recipes&logo=github)](https://github.com/monsieurbiz/SyliusAdvancedOptionPlugin/actions?query=workflow%3ASecurity)
+[![Security Status](https://img.shields.io/github/actions/workflow/status/monsieurbiz/SyliusAdvancedOptionPlugin/security.yaml?branch=master&label=security&logo=github)](https://github.com/monsieurbiz/SyliusAdvancedOptionPlugin/actions?query=workflow%3ASecurity)
 
 This plugins improves the Options in Sylius. It adds the possibility to select a renderer and to add images to the option's values.
 
+## Compatibility
+
+| Sylius Version | PHP Version |
+|---|---|
+| 1.11 | 8.0 - 8.1 |
+| 1.12 | 8.1 - 8.2 |
+| 1.13 | 8.1 - 8.2 |
+
 ## Installation
+
+If you want to use our recipes, you can configure your composer.json by running:
+
+```bash
+composer config --no-plugins --json extra.symfony.endpoint '["https://api.github.com/repos/monsieurbiz/symfony-recipes/contents/index.json?ref=flex/master","flex://defaults"]'
+```
 
 ```bash
 composer require monsieurbiz/sylius-advanced-option-plugin
