@@ -28,7 +28,7 @@ use Sylius\Component\Product\Model\ProductOptionValueTranslationInterface;
 class ProductOptionValue extends BaseProductOptionValue implements RenderedOptionValueInterface
 {
     use RenderedOptionValueTrait {
-        __construct as private initializeImagesCollection;
+        RenderedOptionValueTrait::__construct as private initializeImagesCollection;
     }
 
     public function __construct()
