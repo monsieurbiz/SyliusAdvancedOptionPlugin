@@ -60,9 +60,9 @@ Copy the templates we override:
 cp -Rv vendor/monsieurbiz/sylius-advanced-option-plugin/src/Resources/templates/* templates/
 ```
 
-Your ProductOption entity needs to implement the `RenderedOptionInterface` interface and use the `MonsieurBiz\SyliusAdvancedOptionPlugin\Entity\ProductOption\RenderedOptionTrait` trait. As in our test application: [ProductOption](tests/Application/src/Entity/Product/ProductOption.php).
+Your ProductOption entity needs to implement the `RenderedOptionInterface` interface and use the `MonsieurBiz\SyliusAdvancedOptionPlugin\Entity\ProductOption\RenderedOptionTrait` trait. As in our test application: [ProductOption](dist/src/Entity/Product/ProductOption.php).
 
-Your ProductOptionValue entity needs to implement the `RenderedOptionValueInterface` interface and use the `MonsieurBiz\SyliusAdvancedOptionPlugin\Entity\ProductOption\RenderedOptionValueTrait` trait.  As in our test application: [ProductOption](tests/Application/src/Entity/Product/ProductOptionValue.php).
+Your ProductOptionValue entity needs to implement the `RenderedOptionValueInterface` interface and use the `MonsieurBiz\SyliusAdvancedOptionPlugin\Entity\ProductOption\RenderedOptionValueTrait` trait.  As in our test application: [ProductOption](dist/src/Entity/Product/ProductOptionValue.php).
 
 ### Migrations
 
