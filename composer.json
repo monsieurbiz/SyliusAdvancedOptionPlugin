@@ -5,7 +5,7 @@
     "description": "This plugins improves the Product Options.",
     "license": "MIT",
     "require": {
-        "php": "^8.0",
+        "php": "^8.1",
         "sylius/sylius": ">=1.12 <2.0"
     },
     "require-dev": {
